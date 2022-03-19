@@ -20,11 +20,6 @@ import java.util.Locale;
 @Configuration
 public class CrmConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry){
-        registry.addResourceHandler("/files/**")
-                .addResourceLocations("/WEB-INF/pdf/");
-    }
 
 
     //register the interceptor, in this case, localChangeInteceptor()
@@ -33,13 +28,18 @@ public class CrmConfig implements WebMvcConfigurer {
         registry.addInterceptor(localeChangeInterceptor());
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/files/**")
+                .addResourceLocations("/WEB-INF/pdf/");
+    }
 
 
     @Bean
     public LocaleResolver localeResolver(){
         //ties our session to the current locale we are in, this is part of process used for internationalization
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.US);
+        slr.setDefaultLocale(Locale.UK);
         return slr;
     }
 
@@ -51,6 +51,7 @@ public class CrmConfig implements WebMvcConfigurer {
         lci.setParamName("lang");
         return lci;
     }
+
 
     @Bean
     public ViewResolver viewResolver(){

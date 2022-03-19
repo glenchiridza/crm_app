@@ -21,6 +21,7 @@
     <table>
         <tr>
             <td>
+                Name:
                 <spring:message code="name"/>:
             </td>
             <td>

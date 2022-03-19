@@ -12,9 +12,11 @@ import java.util.Map;
 public class RegistrationController {
 
     @GetMapping("registration")
-    public String getRegistration(@ModelAttribute ("registration")Registration registration){
+    public String getRegistration(@ModelAttribute ("registration") Registration registration){
+
         return "registration";
     }
+
 
     @PostMapping("registration")
     public String addRegistration(@ModelAttribute ("registration")Registration registration){

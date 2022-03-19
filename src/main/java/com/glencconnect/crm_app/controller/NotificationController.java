@@ -13,4 +13,5 @@ public class NotificationController {
         model.put("message","Well you gotta love java consitently");
         return "notification";
     }
+
 }
